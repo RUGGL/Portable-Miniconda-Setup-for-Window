@@ -9,14 +9,14 @@ This project provides a set of Windows batch scripts to create a portable, self-
 Demonstrating two separate Conda environments (`OpenUI` and `AiBot`) each using its own CUDA toolkit:
 
 ```powershell
-(C:\Users\SHIDO\Project\installer_files\Env\OpenUI) C:\Users\SHIDO\Project> nvcc --version
+(C:\Users\SHIDO\Project\installer_files\Environments\OpenUI) ()> nvcc --version
 nvcc: NVIDIA (R) Cuda compiler driver
 Copyright (c) 2005-2023 NVIDIA Corporation
 Built on Wed_Feb__8_05:53:42_Coordinated_Universal_Time_2023
 Cuda compilation tools, release 12.1, V12.1.66
 Build cuda_12.1.r12.1/compiler.32415258_0
 
-(C:\Users\SHIDO\Project\installer_files\Env\AiBot) C:\Users\SHIDO\Project> nvcc --version
+(C:\Users\SHIDO\Project\installer_files\Environments\AiBot) ()> nvcc --version
 nvcc: NVIDIA (R) Cuda compiler driver
 Copyright (c) 2005-2024 NVIDIA Corporation
 Built on Tue_Feb_27_16:28:36_Pacific_Standard_Time_2024
@@ -24,19 +24,19 @@ Cuda compilation tools, release 12.4, V12.4.99
 Build cuda_12.4.r12.4/compiler.33961263_0
 ```
 
-> **Note:** These environments are completely portable. You can relocate the entire `installer_files` folder anywhere, then run `env.bat` to update paths and retain functionality.
+> **Note:** These environments are completely portable. You can relocate the entire `installer_files` folder anywhere, then run `SetEnv.bat` to update paths and retain functionality.
 
 ---
 
 ### Movable Components
 
-The following directories are entirely relocatable, provided you execute `env.bat` after moving:
+The following directories are entirely relocatable, provided you execute `SetEnv.bat` after moving:
 
 * **Miniconda** installation root
-* **Env** (all Conda environments)
-* **conda** (Env package cache)
+* **Environments** (all Conda environments)
+* **Conda** (Miniconda package cache)
 
-When you activate an environment, Conda resolves packages from `installer_files\conda\pkgs` and links them into the active env. If no environment is active, packages installed fall back into `installer_files\Miniconda\pkgs` but may also write to system-wide or user caches.
+When you use conda or activate an environment, Conda resolves packages from `installer_files\Conda\pkgs` and Avoids `\installer_files\Miniconda\pkgs`  
 
 > **Tip:** Always work inside a named environment to keep packages isolated and avoid polluting the global cache.
 
@@ -44,7 +44,7 @@ When you activate an environment, Conda resolves packages from `installer_files\
 
 ### Cache Growth Warning
 
-If you install different CUDA versions or similar large toolkits across multiple environments, the `installer_files\conda\pkgs` folder will grow substantially. **Recommendation:** Choose a single, stable CUDA toolkit (or toolkit version) that meets your project requirements and is widely supported by your dependencies.
+If you install different CUDA versions or similar large toolkits across multiple environments, the `installer_files\Conda\pkgs` folder will grow substantially. **Recommendation:** Choose a single, stable CUDA toolkit (or toolkit version) that meets your project requirements and is widely supported by your dependencies.
 
 ---
 
@@ -68,7 +68,7 @@ If you install different CUDA versions or similar large toolkits across multiple
 * 📂 **Organized Structure**: Environments and packages are neatly stored in dedicated folders.
 * 🔄 **Relocatable**: Move the installation folder and reconfigure paths with ease.
 * 🐍 **Flexible Python Versions**: Create environments with your choice of Python versions and packages (e.g., CUDA support).
-* 🚀 **User-Friendly**: Pre-configured `cmd.bat` for seamless Conda management.
+* 🚀 **User-Friendly**: Pre-configured `Cmd.bat` for seamless Conda management.
 
 ## 🛠️ Prerequisites
 
@@ -80,19 +80,19 @@ If you install different CUDA versions or similar large toolkits across multiple
 
 This repository includes three batch scripts for Windows:
 
-1. **conda.bat** 🛠️
+1. **GetConda.bat** 🛠️
 
    * Downloads and installs Miniconda to `installer_files\Miniconda`.
-   * Creates folders: `installer_files`, `installer_files\conda`, `installer_files\Env`.
+   * Creates folders: `installer_files`, `installer_files\Conda`, `installer_files\Environments`.
    * Deletes the installer after setup to save space.
    * Configures a portable `.condarc` file for environment and package paths.
 
-2. **env.bat** ⚙️
+2. **SetEnv.bat** ⚙️
 
    * Updates the `.condarc` file in `installer_files\Miniconda` with the current directory's environment and package paths.
    * Run this script if you move the installation folder to a new location.
 
-3. **cmd.bat** 💻
+3. **Cmd.bat** 💻
 
    * Opens a command prompt with pre-configured paths for Conda.
    * Displays helpful commands for creating and activating environments.
@@ -107,7 +107,7 @@ Follow these steps to set up your portable Miniconda environment:
    * Clone this repository or download the ZIP file and extract it to your desired location.
    * Example: `C:\Users\YourName\PortableConda`.
 
-2. **Run** `conda.bat` 🚀
+2. **Run** `Conda.bat` 🚀
 
    * Double-click `conda.bat` or run it from a command prompt.
    * This script:
@@ -115,24 +115,24 @@ Follow these steps to set up your portable Miniconda environment:
      * Creates the `installer_files` directory.
      * Downloads Miniconda (Python 3.10.13 by default).
      * Installs it to `installer_files\Miniconda`.
-     * Sets up the `installer_files\Env` folder for environments.
+     * Sets up the `installer_files\Environments` folder for environments.
+     * Sets up the `\installer_files\Conda\pkgs` folder for Conda Pkgs.
      * Configures the `.condarc` file.
 
-3. **Run** `env.bat` ⚙️
+3. **Run** `SetEnv.bat` ⚙️
 
-   * After `conda.bat` completes, run `env.bat`.
-   * This updates the `.condarc` file with the correct paths for environments (`installer_files\Env`) and packages (`installer_files\conda\pkgs`).
+   * After `GetConda.bat` completes, run `SetEnv.bat`.
+   * This updates the `.condarc` file with the correct paths for environments (`installer_files\Environments`) and packages (`installer_files\Conda\pkgs`).
 
 4. **Use** `cmd.bat` 💻
 
-   * Run `cmd.bat` to open a command prompt with Conda paths pre-configured.
-   * The prompt displays example commands for creating and activating environments.
+   * Run `Cmd.bat` to open a command prompt with Conda paths pre-configured.
 
 **Note**: Keep the batch scripts outside the `installer_files` folder at all times to avoid issues.
 
 ## 🖥️ Usage Instructions
 
-Once installed, you can manage Conda environments using `cmd.bat`. Here’s how:
+Once installed, you can manage Conda environments using `Cmd.bat`. Here’s how:
 
 ### Creating a New Environment 🆕
 
@@ -209,11 +209,11 @@ Conda is perfect for:
 * **Folder Structure**:
 
   * `installer_files\Miniconda`: Miniconda installation.
-  * `installer_files\Env`: Conda environments.
-  * `installer_files\conda\pkgs`: Package cache.
-* **Download Methods**: `conda.bat` tries PowerShell, CURL, and CertUtil to ensure reliable downloads.
+  * `installer_files\Environments`: Conda environments.
+  * `installer_files\Conda\pkgs`: Package cache.
+* **Download Methods**: `GetConda.bat` tries CURL to ensure reliable downloads.
 * **Configuration**: The `.condarc` file is customized to store environments and packages locally, making the setup portable.
-* **Path Management**: `cmd.bat` temporarily sets paths for the session, avoiding system-wide changes.
+* **Path Management**: `Cmd.bat` temporarily sets paths for the session, avoiding system-wide changes.
 
 ## 📍 Portability Notes
 
@@ -221,24 +221,24 @@ This setup is designed to be portable, but there are a few things to keep in min
 
 * **Moving the Installation** 📦
 
-  * If you move the installation folder (e.g., to a USB drive), run `env.bat` to update the `.condarc` file with the new paths.
+  * If you move the installation folder (e.g., to a USB drive), run `Environments.bat` to update the `.condarc` file with the new paths.
 
 * **Package Cache** 📚
 
-  * Packages are stored in `installer_files\conda\pkgs`, so they persist across environment recreations unless deleted.
+  * Packages are stored in `installer_files\Conda\pkgs`, so they persist across environment recreations unless deleted.
 
 ## 🛠️ Troubleshooting
 
 * **Download Fails**:
 
-  * If `conda.bat` fails to download Miniconda, manually download it from the Miniconda website and place it in `installer_files\miniconda_installer.exe`.
+  * If `GetConda.bat` fails to download Miniconda, manually download it from the Miniconda website and place it in `installer_files\miniconda_installer.exe`.
 * **Environment Not Found**:
 
-  * Ensure you ran `env.bat` after moving the installation folder.
+  * Ensure you ran `SetEnv.bat` after moving the installation folder.
   * Verify the `.condarc` file in `installer_files\Miniconda` points to the correct paths.
 * **Command Not Recognized**:
 
-  * Always run commands from the prompt opened by `cmd.bat`, as it sets the necessary paths.
+  * Always run commands from the prompt opened by `Cmd.bat`, as it sets the necessary paths.
 * **Scripts Not Working**:
 
   * Ensure the batch scripts are outside the `installer_files` folder.
