@@ -48,6 +48,19 @@ If you install different CUDA versions or similar large toolkits across multiple
 
 ---
 
+```markdown
+## Note on Conda Package Installation
+
+When installing packages like CUDA and cuDNN using a command such as:
+
+```bash
+conda install -c nvidia/label/cuda-12.1.0 cuda cudnn
+```
+
+Conda checks if the required packages already exist in the Conda package cache (`conda/pkgs`). If they do, Conda will link the pre-existing packages to the target environment (e.g., `C:\Users\CSP\Downloads\installer_files\Environments\openwebui`) without re-downloading or reinstalling them. 
+
+For example, if one environment has already installed CUDA 11.7, and another environment requires the same version, Conda will reuse the cached CUDA 11.7 package and link it to the new environment. Conda only downloads and installs packages when they are not already present in the cache and are required by the environment.
+
 ## 📖 Table of Contents
 
 * Features
