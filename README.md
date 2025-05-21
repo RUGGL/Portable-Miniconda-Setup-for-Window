@@ -49,11 +49,9 @@ If you install different CUDA versions or similar large toolkits across multiple
 ---
 
 ```markdown
-## Note on Conda Package Installation
+Note on Conda Package Installation
 
 When installing packages like CUDA and cuDNN using a command such as:
-
-```bash
 conda install -c nvidia/label/cuda-12.1.0 cuda cudnn
 ```
 
