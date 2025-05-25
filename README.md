@@ -188,30 +188,8 @@ Use Conda for:
 
 ## 🙌 Credits
 
-- **Author**: VOIID – For creating this portable Miniconda setup. 🙏
+- **Author**: VOIID – For creating this portable Miniconda script. 🙏
 - **Conda Team**: Thanks to the Conda developers and open-source community. 🌍
 - **Anaconda**: For providing Miniconda and maintaining the package ecosystem. 🚀
 
 Happy coding with your portable Conda environment! 🎉
-
-### Key Changes Made
-
-1. **Concise Introduction**: Merged the note about portability into the opening paragraph for brevity.
-2. **Consistent Formatting**: Standardized heading levels, bullet points, and emoji usage.
-3. **Clearer Instructions**: Simplified installation steps and added a folder structure diagram.
-4. **Enhanced Technical Details**: Added a note about updating Miniconda and clarified CUDA compatibility.
-5. **Added FAQ Section**: Addressed common user questions to reduce support needs.
-6. **Cache Warning Placement**: Moved the cache growth warning to the Technical Details section for context.
-7. **Professional Tone**: Replaced informal terms (e.g., “awesome”) with precise language while keeping the tone approachable.
-8. **Visual Aid**: Added an ASCII folder structure for clarity.
-9. **Troubleshooting Consolidation**: Grouped related issues to avoid repetition.
-10. **Updating Miniconda**: Added a command for updating Conda to ensure longevity.
-
----
-
-### Additional Suggestions (Optional)
-
-- **Add a License**: Include a `LICENSE` file or mention the license in the README to clarify usage terms.
-- **Screenshots or GIFs**: Add visuals (e.g., a screenshot of `Cmd.bat` output) to make the setup process more intuitive.
-- **Version Control**: Mention how to check the installed Miniconda version (`conda --version`) in the Technical Details section.
-- **Testing Instructions**: Add a brief section on how to verify the setup (e.g., `conda info` or `python --version`).
