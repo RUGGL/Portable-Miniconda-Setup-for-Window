@@ -5,7 +5,6 @@ set SCRIPT_DIR=%CD%
 set INSTALL_DIR=%SCRIPT_DIR%\installer_files
 set CONDA_ROOT_PREFIX=%INSTALL_DIR%\Miniconda
 set ENV_DIR=%SCRIPT_DIR%\installer_files\Environments
-set CONDA_DIR=%SCRIPT_DIR%\installer_files\Conda
 set CONDARC=%CONDA_ROOT_PREFIX%\.condarc
 set MINICONDA_DOWNLOAD_URL=https://repo.anaconda.com/miniconda/Miniconda3-py310_23.11.0-2-Windows-x86_64.exe
 
@@ -16,7 +15,6 @@ echo.
 echo Creating installation directories...
 if not exist "%INSTALL_DIR%" mkdir "%INSTALL_DIR%"
 if not exist "%ENV_DIR%" mkdir "%ENV_DIR%"
-if not exist "%CONDA_DIR%" mkdir "%CONDA_DIR%"
 
 echo.
 echo Downloading Miniconda installer...
