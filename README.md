@@ -32,37 +32,28 @@ This project provides Windows batch scripts to create a **portable, self-contain
 - **Operating System**: Windows 64-bit.
 - **Internet Connection**: Required for downloading Miniconda during setup.
 - **Disk Space**: At least 2 GB free for Miniconda and environments.
-- **Important**: Keep batch scripts **outside** the `installer_files` folder to avoid issues.
+- **Important**: Keep batch scripts(eg:Miniconda/Portable-Miniconda-Setup-for-Window) **outside** the installer_files folder(eg:Miniconda_Portable/Miniconda) to avoid issues.
 
 ## 📜 Scripts Overview
 
 1. **`GetConda.bat`** 🛠️  
-   - Downloads and installs Miniconda to `..\Miniconda`.  
-   - Creates `installer_files`, `..\Miniconda`, and `..\Environments`.  
+   - Downloads and installs Miniconda to `Miniconda_Portable\Miniconda`.  
+   - Creates `Miniconda_Portable\installer_files`, `Miniconda_Portable\Miniconda`, and `Miniconda_Portable\Environments`.  
    - Deletes the installer after setup to save space.  
    - Configures a portable `.condarc` file for environment and package paths.
 
 2. **`SetEnv.bat`** ⚙️  
    - Updates the `.condarc` file with the current directory’s environment and package paths.  
-   - Run this after moving the `installer_files` folder to a new location.
+   - Run this after moving the `Miniconda_Portable`  folder to a new location.
 
 3. **`Cmd.bat`** 💻  
    - Opens a command prompt with pre-configured Conda paths.  
    - Displays helpful commands for creating and activating environments.
 
-## 📦 Installation Guide
+## ⛩️ Folder Structure
 
-1. **Download the Repository** 📥  
-   - Creates the `Miniconda` directory.  
-
-   - Clone this repository in `Miniconda`  directory or download and extract the ZIP file to your desired location.
-   
-   - we get dir like this in the end
-   
-   
-   
  ```
-Miniconda/
+Miniconda_Portable/
 ├── Portable-Miniconda-Setup-for-Window
 │   ├── GetConda.bat
 │   │   SetEnv.bat
@@ -81,16 +72,26 @@ Miniconda/
     └── ...   
  ```
 
+## 📦 Installation Guide
+
+1. **Download the Repository** 📥  
+   - Creates the `Miniconda_Portable` directory as parent folder.  
+
+   - Clone this repository in `Miniconda_Portable`  directory or download and extract the ZIP file to your desired location.
+   
+   - we get directory structure like this in the end.
+   
+
 
 ​     
 
 2. **Run `GetConda.bat`** 🚀  
    - Double-click `GetConda.bat` or run it from a command prompt.  
    - This script:  
-     - Creates the `Miniconda` directory.  
-     - Downloads Miniconda (Python 3.10.13 by default).  
-     - Installs it to `Miniconda\Miniconda`.  
-     - Sets up `Miniconda\Environments` for environments and `Miniconda\Miniconda\pkgs` for packages.  
+     - Creates the ` Miniconda_Portable\Miniconda` directory.  
+     - Downloads Miniconda install .exe (Python 3.10.13 by default).  
+     - Installs it to `Miniconda_Portable\Miniconda`.  
+     - Sets up `Miniconda_Portable\Environments` for environments and `Miniconda_Portable\Miniconda\pkgs` for packages.  
      - Configures the `.condarc` file.
 
 3. **Run `SetEnv.bat`** ⚙️  
