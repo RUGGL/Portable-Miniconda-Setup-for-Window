@@ -37,8 +37,8 @@ This project provides Windows batch scripts to create a **portable, self-contain
 ## 📜 Scripts Overview
 
 1. **`GetConda.bat`** 🛠️  
-   - Downloads and installs Miniconda to `installer_files\Miniconda`.  
-   - Creates `installer_files`, `installer_files\Miniconda`, and `installer_files\Environments`.  
+   - Downloads and installs Miniconda to `..\Miniconda`.  
+   - Creates `installer_files`, `..\Miniconda`, and `..\Environments`.  
    - Deletes the installer after setup to save space.  
    - Configures a portable `.condarc` file for environment and package paths.
 
@@ -53,15 +53,44 @@ This project provides Windows batch scripts to create a **portable, self-contain
 ## 📦 Installation Guide
 
 1. **Download the Repository** 📥  
-   - Clone this repository or download and extract the ZIP file to your desired location.
+   - Creates the `Miniconda` directory.  
+
+   - Clone this repository in `Miniconda`  directory or download and extract the ZIP file to your desired location.
+   
+   - we get dir like this in the end
+   
+   
+   
+ ```
+Miniconda/
+├── Portable-Miniconda-Setup-for-Window
+│   ├── GetConda.bat
+│   │   SetEnv.bat
+│   │   Cmd.bat
+│   │   README.md
+│   └── .git/
+│
+├── installer_files
+│   └── miniconda_installer.exe
+│
+├── Environments
+│   └──.condarc
+│
+└── Miniconda
+    ├── _conda.exe
+    └── ...   
+ ```
+
+
+​     
 
 2. **Run `GetConda.bat`** 🚀  
    - Double-click `GetConda.bat` or run it from a command prompt.  
    - This script:  
-     - Creates the `installer_files` directory.  
+     - Creates the `Miniconda` directory.  
      - Downloads Miniconda (Python 3.10.13 by default).  
-     - Installs it to `installer_files\Miniconda`.  
-     - Sets up `installer_files\Environments` for environments and `installer_files\Miniconda\pkgs` for packages.  
+     - Installs it to `Miniconda\Miniconda`.  
+     - Sets up `Miniconda\Environments` for environments and `Miniconda\Miniconda\pkgs` for packages.  
      - Configures the `.condarc` file.
 
 3. **Run `SetEnv.bat`** ⚙️  
@@ -71,20 +100,6 @@ This project provides Windows batch scripts to create a **portable, self-contain
    - Run `Cmd.bat` to open a command prompt with Conda pre-configured.
 
 > **Note**: Always keep batch scripts **outside** the `installer_files` folder.
-
-### Folder Structure
-
-```
-<root_directory>/
-├── GetConda.bat
-├── SetEnv.bat
-├── Cmd.bat
-└── installer_files/
-    ├── Miniconda/
-    │   ├── pkgs/
-    │   └── .condarc
-    └── Environments/
-```
 
 ## 🖥️ Usage Instructions
 

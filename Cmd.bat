@@ -2,11 +2,13 @@
 set PROMPT=()$G
 setlocal
 cd /D "%~dp0"
+::出于个人喜好,修改目录层级,脚本与miniconda同级
+cd ..
 
-set Miniconda=%CD%\installer_files\Miniconda
-set Scripts=%CD%\installer_files\Miniconda\Scripts
-set Bin=%CD%\installer_files\Miniconda\Library\bin 
-set Conda=%CD%\installer_files\Miniconda\_CONDA.exe
+set Miniconda=%CD%\Miniconda
+set Scripts=%CD%\Portable-Miniconda-Setup-for-Window
+set Bin=%CD%\Miniconda\Library\bin 
+set Conda=%CD%\Miniconda\_CONDA.exe
 
 :: Set the path temporarily for this session
 set PATH=%Miniconda%;%Miniconda%\condabin;%Scripts%;%Bin%;%PATH%
